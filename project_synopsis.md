@@ -110,11 +110,12 @@ The diagrams below are provided in Mermaid syntax so you can render them in Mark
 DFD Level 0 (High level)
 
 ```mermaid
+```mermaid
 flowchart TB
   A[User] -->|Uses web UI| B[Streamlit App]
   B --> C[Post Generator]
-  C --> D[LLM Service (GROQ)]
-  B --> E[Data Store (processed_posts.json)]
+  C --> D[LLM Service - GROQ]
+  B --> E[Data Store - processed_posts.json]
   E --> B
   B -->|Outputs| F[Generated Post]
 ```
@@ -129,9 +130,9 @@ flowchart LR
   end
 
   subgraph Backend
-    P[Preprocessor (`preprocess.py`)]
-    FSP[FewShotPosts (`few_shot.py`)]
-    PG[Post Generator (`post_generator.py`)]
+    P[Preprocessor (preprocess.py)]
+    FSP[FewShotPosts (few_shot.py)]
+    PG[Post Generator (post_generator.py)]
     LLM[LLM Service (GROQ)]
     DS[Data (processed_posts.json)]
   end
